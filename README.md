@@ -1,6 +1,4 @@
-Here's a sample `README.md` file for your Spring Boot backend project:
 
-```markdown
 # Intelligent Cricket Team Selection System (ICTSS) - Backend
 
 The **Intelligent Cricket Team Selection System (ICTSS)** is a Spring Boot application designed to help selectors, coaches, and analysts make data-driven decisions for cricket team selection using advanced machine learning and real-time analytics.
@@ -145,7 +143,3 @@ Roles include:
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
-
-```
-
-This `README.md` file provides a clear overview of the project, its structure, setup instructions, and API endpoints. You can modify it according to your specific requirements.
