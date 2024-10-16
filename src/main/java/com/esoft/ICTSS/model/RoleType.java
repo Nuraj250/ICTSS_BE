@@ -1,6 +1,6 @@
 package com.esoft.ICTSS.model;
 
-public enum Roles {
+public enum RoleType {
     USER,
     ADMIN
 }

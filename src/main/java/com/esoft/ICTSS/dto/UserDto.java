@@ -1,5 +1,6 @@
 package com.esoft.ICTSS.dto;
 
+import com.esoft.ICTSS.model.RoleType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,12 +12,12 @@ import java.io.Serializable;
 @Getter
 @ToString
 @NoArgsConstructor
-public class UserDTO implements Serializable {
+public class UserDto implements Serializable {
 
     private String username;
     private String password;
     private String email;
-    private String userType; // "Driver", "Customer", "Admin"
+    private RoleType role; // Role to be set during registration
     private String profileImage; // Image URL or path
     private String contact;
 }

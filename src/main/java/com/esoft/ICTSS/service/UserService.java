@@ -1,16 +1,16 @@
 package com.esoft.ICTSS.service;
 
-import com.esoft.ICTSS.dto.UserDTO;
+import com.esoft.ICTSS.dto.UserDto;
 import com.esoft.ICTSS.model.User;
 import com.esoft.ICTSS.util.ResponseMessage;
 
 public interface UserService {
 
-    ResponseMessage registerUser(UserDTO userDTO);
+    ResponseMessage registerUser(UserDto userDTO);
 
-    ResponseMessage registerUserByOperator(UserDTO userDTO);
+    ResponseMessage registerUserByOperator(UserDto userDTO);
 
-    ResponseMessage updateUser(Long id, UserDTO userDTO);
+    ResponseMessage updateUser(Long id, UserDto userDTO);
 
     ResponseMessage getUserById(Long id);
 
@@ -20,5 +20,5 @@ public interface UserService {
 
     User findUserByUsername(String username);
 
-    ResponseMessage authenticate(UserDTO userDTO);
+    ResponseMessage authenticate(UserDto userDTO);
 }

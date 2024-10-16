@@ -1,7 +1,7 @@
 package com.esoft.ICTSS.service.Implementaion;
 
 import com.esoft.ICTSS.service.UserService;
-import com.esoft.ICTSS.dto.UserDTO;
+import com.esoft.ICTSS.dto.UserDto;
 import com.esoft.ICTSS.mapper.UserMapper;
 import com.esoft.ICTSS.model.User;
 import com.esoft.ICTSS.repository.UserRepository;
@@ -36,7 +36,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public ResponseMessage registerUser(final UserDTO userDTO) {
+    public ResponseMessage registerUser(final UserDto userDTO) {
         try {
             User user = UserMapper.INSTANCE.userDTOToUser(userDTO);
             user.setPassword(passwordEncoder.encode(userDTO.getPassword()));
@@ -50,7 +50,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public ResponseMessage registerUserByOperator(UserDTO userDTO) {
+    public ResponseMessage registerUserByOperator(UserDto userDTO) {
         try {
             User user = UserMapper.INSTANCE.userDTOToUser(userDTO);
             user.setPassword(null); // Do not save the password for operator registered users
@@ -58,18 +58,17 @@ public class UserServiceImpl implements UserService {
             return new ResponseMessage(200, "User registered successfully", savedUser);
         } catch (Exception e) {
             log.error("ERROR on registerUserByOperator {}", e.getMessage());
-
             return new ResponseMessage(500, "User registration failed", null);
         }
     }
 
     @Override
-    public ResponseMessage updateUser(Long id, UserDTO userDTO) {
+    public ResponseMessage updateUser(Long id, UserDto userDTO) {
         return userRepository.findById(id).map(user -> {
             user.setUsername(userDTO.getUsername());
             user.setPassword(userDTO.getPassword());
             user.setEmail(userDTO.getEmail());
-            user.setUserType(userDTO.getUserType());
+            user.setRole(userDTO.getRole());
             user.setProfileImage(userDTO.getProfileImage());
             userRepository.save(user);
             return new ResponseMessage(200, Alert.updateSuccess, user);
@@ -103,7 +102,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public ResponseMessage authenticate(UserDTO userDTO) {
+    public ResponseMessage authenticate(UserDto userDTO) {
         User existUser = this.userRepository.findByUsername(userDTO.getUsername())
                 .orElse(null);
 
@@ -118,7 +117,7 @@ public class UserServiceImpl implements UserService {
             Map<String, Object> userDetailsMap = Map.of(
                     "id", existUser.getId(),
                     "username", existUser.getUsername(),
-                    "usertype", existUser.getUserType(),
+                    "usertype", existUser.getRole(),
                     "contact", existUser.getContact(),
                     "email", existUser.getEmail()
             );

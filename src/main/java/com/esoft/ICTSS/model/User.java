@@ -31,7 +31,8 @@ public class User implements Serializable {
     private String contact;
 
     @Column(nullable = false)
-    private String userType; // "Driver", "Customer", "Admin"
+    @Enumerated(EnumType.STRING)
+    private RoleType role; // This will store the role of the user
 
     @Column(nullable = true)
     private String profileImage; // Image path
@@ -39,16 +40,5 @@ public class User implements Serializable {
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdDate;
 
-    @Column(nullable = true)
-    private Double rating = 0.0; // Average rating for the driver
-
-    @Column(nullable = true)
-    private Integer totalRatings = 0; // The number of ratings the driver has received
-
-    @Column(nullable = true)
-    private String feedback; // The feedback received by customers
-
-    @Column(nullable = true)
-    private String driverState; // Either 'available' or 'busy'
 }
 
