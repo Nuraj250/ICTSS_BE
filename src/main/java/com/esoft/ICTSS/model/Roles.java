@@ -1,4 +1,4 @@
-package com.esoft.ICTSS.models;
+package com.esoft.ICTSS.model;
 
 public enum Roles {
     USER,

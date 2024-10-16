@@ -1,9 +1,9 @@
 package com.esoft.ICTSS.security;
 
-import com.example.city_Taxi.model.User;
-import com.example.city_Taxi.service.UserService;
-import com.example.city_Taxi.util.Alert;
-import com.example.city_Taxi.util.ResponseMessage;
+import com.esoft.ICTSS.model.User;
+import com.esoft.ICTSS.service.UserService;
+import com.esoft.ICTSS.util.Alert;
+import com.esoft.ICTSS.util.ResponseMessage;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
