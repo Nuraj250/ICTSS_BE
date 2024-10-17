@@ -1,5 +1,6 @@
 package com.esoft.ICTSS.model;
 
+import com.esoft.ICTSS.enums.RoleType;
 import jakarta.persistence.*;
 import lombok.*;
 

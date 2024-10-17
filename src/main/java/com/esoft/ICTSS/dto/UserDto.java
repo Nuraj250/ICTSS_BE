@@ -1,6 +1,6 @@
 package com.esoft.ICTSS.dto;
 
-import com.esoft.ICTSS.model.RoleType;
+import com.esoft.ICTSS.enums.RoleType;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
