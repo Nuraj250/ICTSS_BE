@@ -1,6 +1,7 @@
 package com.esoft.ICTSS.service;
 
 import com.esoft.ICTSS.dto.PlayerDto;
+import com.esoft.ICTSS.dto.ReportDto;
 
 import java.util.List;
 
@@ -15,4 +16,7 @@ public interface PlayerService {
     void deletePlayer(Long id);
     PlayerDto getPlayerById(Long id);
     List<PlayerDto> getAllPlayers();
+
+    // New method to generate player performance report
+    List<ReportDto> generatePlayerPerformanceReport();
 }

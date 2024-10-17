@@ -1,6 +1,7 @@
 package com.esoft.ICTSS.service.Implementaion;
 
 import com.esoft.ICTSS.dto.PlayerDto;
+import com.esoft.ICTSS.dto.ReportDto;
 import com.esoft.ICTSS.exceptions.EntityNotFoundException;
 import com.esoft.ICTSS.mapper.PlayerMapper;
 import com.esoft.ICTSS.model.Player;
@@ -94,5 +95,30 @@ public class PlayerServiceImpl implements PlayerService {
     public List<PlayerDto> getAllPlayers() {
         List<Player> players = playerRepository.findAll();
         return players.stream().map(playerMapper::toDto).collect(Collectors.toList());
+    }
+
+    /**
+     * Generates a performance report for all players.
+     * @return
+     */
+    @Override
+    public List<ReportDto> generatePlayerPerformanceReport() {
+        return playerRepository.findAll().stream()
+                .map(player -> new ReportDto(
+                        player.getId(),
+                        player.getName(),
+                        player.getRuns(),
+                        player.getWickets(),
+                        calculateStrikeRate(player.getRuns(), player.getWickets()),
+                        calculateAverage(player.getRuns(), 1) // Assuming 1 match per player for demo purposes
+                )).collect(Collectors.toList());
+    }
+
+    private double calculateStrikeRate(int runs, int wickets) {
+        return wickets > 0 ? (double) runs / wickets : 0.0;
+    }
+
+    private double calculateAverage(int runs, int matches) {
+        return matches > 0 ? (double) runs / matches : 0.0;
     }
 }

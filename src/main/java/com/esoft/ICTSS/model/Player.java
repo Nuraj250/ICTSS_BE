@@ -4,6 +4,8 @@ import com.esoft.ICTSS.enums.PlayerType;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.io.Serializable;
+
 /**
  * Entity class for Player.
  * Represents the structure of the Player table in the database.
@@ -15,7 +17,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "player")
-public class Player {
+public class Player{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

@@ -1,12 +1,11 @@
 package com.esoft.ICTSS.controller;
 
 import com.esoft.ICTSS.dto.PlayerDto;
+import com.esoft.ICTSS.dto.ReportDto;
 import com.esoft.ICTSS.service.PlayerService;
-import com.esoft.ICTSS.util.Alert;
 import com.esoft.ICTSS.util.ResponseMessage;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -83,4 +82,13 @@ public class PlayerController {
     public ResponseEntity<List<PlayerDto>> getAllPlayers() {
         List<PlayerDto> players = playerService.getAllPlayers();
         return ResponseEntity.ok(players);    }
+
+    /**
+     * Endpoint to generate and return player performance report.
+     */
+    @GetMapping("/report")
+    public ResponseEntity<List<ReportDto>> generatePlayerPerformanceReport() {
+        List<ReportDto> report = playerService.generatePlayerPerformanceReport();
+        return ResponseEntity.ok(report);
+    }
 }

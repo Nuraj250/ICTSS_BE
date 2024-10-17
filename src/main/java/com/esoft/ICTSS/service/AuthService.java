@@ -1,4 +1,4 @@
 package com.esoft.ICTSS.service;
 
-public enum AuthService {
+public interface AuthService {
 }
