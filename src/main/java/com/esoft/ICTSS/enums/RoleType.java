@@ -1,6 +1,8 @@
 package com.esoft.ICTSS.enums;
 
 public enum RoleType {
-    USER,
-    ADMIN
+    ADMIN,
+    COACH,
+    SELECTOR,
+    ANALYST
 }

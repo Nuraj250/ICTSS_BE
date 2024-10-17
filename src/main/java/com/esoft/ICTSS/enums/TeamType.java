@@ -1,4 +1,7 @@
 package com.esoft.ICTSS.enums;
 
-public class TeamType {
+public enum TeamType {
+    TEST,
+    ODI,
+    T20
 }
