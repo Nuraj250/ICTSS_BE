@@ -1,6 +1,7 @@
 package com.esoft.ICTSS.service.Implementaion;
 
 import com.esoft.ICTSS.dto.PlayerDto;
+import com.esoft.ICTSS.dto.PlayerInput;
 import com.esoft.ICTSS.dto.ReportDto;
 import com.esoft.ICTSS.exceptions.EntityNotFoundException;
 import com.esoft.ICTSS.mapper.PlayerMapper;
@@ -11,6 +12,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.tensorflow.SavedModelBundle;
 
 import java.util.List;
 import java.util.stream.Collectors;

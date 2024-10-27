@@ -1,14 +1,13 @@
 package com.esoft.ICTSS.controller;
 
-import com.esoft.ICTSS.ai.PlayerAIModel;
 import com.esoft.ICTSS.dto.PlayerDto;
 import com.esoft.ICTSS.dto.PlayerInput;
 import com.esoft.ICTSS.dto.ReportDto;
+import com.esoft.ICTSS.service.PlayerPerformanceService;
 import com.esoft.ICTSS.service.PlayerService;
 import com.esoft.ICTSS.util.ResponseMessage;
-import lombok.*;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,15 +21,12 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/players")
 @Slf4j
+@RequiredArgsConstructor
 public class PlayerController {
 
     private final PlayerService playerService;
-    private final PlayerAIModel playerAIModel;
+    private final PlayerPerformanceService playerPerformanceService;
 
-    public PlayerController(PlayerService playerService, PlayerAIModel playerAIModel) {
-        this.playerService = playerService;
-        this.playerAIModel = playerAIModel;
-    }
 
 
     /**
@@ -101,8 +97,11 @@ public class PlayerController {
         return ResponseEntity.ok(report);
     }
 
+    /**
+     * Predicts performance for multiple players in a single request.
+     */
     @PostMapping("/predict")
-    public List<Boolean> predictPlayers(@RequestBody List<PlayerInput> players) {
-        return playerAIModel.predictPlayers(players);
+    public List<Boolean> predictPerformance(@RequestBody List<PlayerInput> playerInputs) {
+        return playerPerformanceService.predictPlayerPerformance(playerInputs);
     }
 }
