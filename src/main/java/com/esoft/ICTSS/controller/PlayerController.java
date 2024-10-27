@@ -1,11 +1,14 @@
 package com.esoft.ICTSS.controller;
 
+import com.esoft.ICTSS.ai.PlayerAIModel;
 import com.esoft.ICTSS.dto.PlayerDto;
+import com.esoft.ICTSS.dto.PlayerInput;
 import com.esoft.ICTSS.dto.ReportDto;
 import com.esoft.ICTSS.service.PlayerService;
 import com.esoft.ICTSS.util.ResponseMessage;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,10 +22,16 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/players")
 @Slf4j
-@RequiredArgsConstructor
 public class PlayerController {
 
     private final PlayerService playerService;
+    private final PlayerAIModel playerAIModel;
+
+    public PlayerController(PlayerService playerService, PlayerAIModel playerAIModel) {
+        this.playerService = playerService;
+        this.playerAIModel = playerAIModel;
+    }
+
 
     /**
      * Adds a new player.
@@ -90,5 +99,10 @@ public class PlayerController {
     public ResponseEntity<List<ReportDto>> generatePlayerPerformanceReport() {
         List<ReportDto> report = playerService.generatePlayerPerformanceReport();
         return ResponseEntity.ok(report);
+    }
+
+    @PostMapping("/predict")
+    public List<Boolean> predictPlayers(@RequestBody List<PlayerInput> players) {
+        return playerAIModel.predictPlayers(players);
     }
 }

@@ -4,8 +4,6 @@ import com.esoft.ICTSS.enums.PlayerType;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.io.Serializable;
-
 /**
  * Entity class for Player.
  * Represents the structure of the Player table in the database.
@@ -34,4 +32,19 @@ public class Player{
 
     @Column
     private int wickets;
+
+    @Column
+    private double average;
+
+    @Column
+    private double strikeRate;
+
+    @Column
+    private double bowlingAverage;
+
+    @Column
+    private double economyRate;
+
+    @Column
+    private int fieldingStats;
 }
