@@ -1,7 +1,6 @@
 package com.esoft.ICTSS.service;
 
 import com.esoft.ICTSS.dto.PlayerDto;
-import com.esoft.ICTSS.dto.PlayerInput;
 import com.esoft.ICTSS.dto.ReportDto;
 
 import java.util.List;

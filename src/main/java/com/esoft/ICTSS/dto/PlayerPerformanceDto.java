@@ -11,7 +11,7 @@ import java.io.Serializable;
 @Getter
 @ToString
 @NoArgsConstructor
-public class PlayerInput implements Serializable {
+public class PlayerPerformanceDto implements Serializable {
     private double average;
     private double strikeRate;
     private double bowlingAverage;

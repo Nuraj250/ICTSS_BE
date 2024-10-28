@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/playgrounds")
+@RequestMapping("/playgrounds")
 @Slf4j
 @RequiredArgsConstructor
 public class PlaygroundController {

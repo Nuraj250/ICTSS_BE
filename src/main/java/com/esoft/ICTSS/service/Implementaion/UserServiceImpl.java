@@ -1,5 +1,6 @@
 package com.esoft.ICTSS.service.Implementaion;
 
+import com.esoft.ICTSS.dto.LoginRequestDto;
 import com.esoft.ICTSS.service.UserService;
 import com.esoft.ICTSS.dto.UserDto;
 import com.esoft.ICTSS.mapper.UserMapper;
@@ -102,7 +103,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public ResponseMessage authenticate(UserDto userDTO) {
+    public ResponseMessage authenticate(LoginRequestDto userDTO) {
         User existUser = this.userRepository.findByUsername(userDTO.getUsername())
                 .orElse(null);
 

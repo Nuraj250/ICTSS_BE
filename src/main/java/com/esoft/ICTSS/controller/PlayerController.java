@@ -1,7 +1,7 @@
 package com.esoft.ICTSS.controller;
 
 import com.esoft.ICTSS.dto.PlayerDto;
-import com.esoft.ICTSS.dto.PlayerInput;
+import com.esoft.ICTSS.dto.PlayerPerformanceDto;
 import com.esoft.ICTSS.dto.ReportDto;
 import com.esoft.ICTSS.service.PlayerPerformanceService;
 import com.esoft.ICTSS.service.PlayerService;
@@ -19,7 +19,7 @@ import java.util.List;
  * Handles HTTP requests and maps them to PlayerService methods.
  */
 @RestController
-@RequestMapping("/api/players")
+@RequestMapping("/players")
 @Slf4j
 @RequiredArgsConstructor
 public class PlayerController {
@@ -32,7 +32,7 @@ public class PlayerController {
     /**
      * Adds a new player.
      */
-    @PostMapping
+    @PostMapping("/add")
     public ResponseEntity<?> addPlayer(@RequestBody PlayerDto playerDto) {
         PlayerDto addedPlayer = playerService.addPlayer(playerDto);
         if (addedPlayer != null) {
@@ -101,7 +101,7 @@ public class PlayerController {
      * Predicts performance for multiple players in a single request.
      */
     @PostMapping("/predict")
-    public List<Boolean> predictPerformance(@RequestBody List<PlayerInput> playerInputs) {
-        return playerPerformanceService.predictPlayerPerformance(playerInputs);
+    public List<Boolean> predictPerformance(@RequestBody List<PlayerPerformanceDto> playerPerformanceDtos) {
+        return playerPerformanceService.predictPlayerPerformance(playerPerformanceDtos);
     }
 }

@@ -1,5 +1,6 @@
 package com.esoft.ICTSS.service;
 
+import com.esoft.ICTSS.dto.LoginRequestDto;
 import com.esoft.ICTSS.dto.UserDto;
 import com.esoft.ICTSS.model.User;
 import com.esoft.ICTSS.util.ResponseMessage;
@@ -20,5 +21,5 @@ public interface UserService {
 
     User findUserByUsername(String username);
 
-    ResponseMessage authenticate(UserDto userDTO);
+    ResponseMessage authenticate(LoginRequestDto userDTO);
 }

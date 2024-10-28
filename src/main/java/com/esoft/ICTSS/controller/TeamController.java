@@ -14,7 +14,7 @@ import java.util.List;
  * REST Controller for Team-related operations.
  */
 @RestController
-@RequestMapping("/api/teams")
+@RequestMapping("/teams")
 @Slf4j
 @RequiredArgsConstructor
 public class TeamController {
