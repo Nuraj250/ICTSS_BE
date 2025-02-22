@@ -57,7 +57,7 @@ Before you start, ensure you have the following installed:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-repository/ictss-backend.git
+git clone https://github.com/Nuraj250/ictss-backend.git
 cd ictss-backend
 ```
 
